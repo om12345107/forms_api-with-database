@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{background-color: rgb(103, 103, 231);
+
+    }
+    form{margin-top: 100px;
+        margin-left: 600px;
+
+    }
+    .label {font-size:medium;
+    font-style:bold;
+    padding:5px;
+    display: block;
+    line-height: normal;
+
+
+    }
+    .field{border-radius:50%;
+
+    }
+</style>
+<body>
+    <form action="#" method="POST" novalidate>
+        {% csrf_token %}
+        {{fil.non_field_errors}}
+        {% for field in fil %}
+        <div>
+        <span class='label'>{{field.label_tag}}</span> <span class='field'>{{field}}</span> <span class='errors'>{{field.errors|striptags}}</span>
+        </div>
+
+
+        {% endfor %}
+        <input type="submit" value="SUBIT" style="margin-left:60px;margin-top: 20px;">
+
+    </form>
+    
+</body>
+</html>
